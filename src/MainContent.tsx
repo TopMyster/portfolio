@@ -14,16 +14,16 @@ export default function MainContent() {
                     {title: "Nova", link: "https://github.com/TopMyster/Nova", image: "", size: 0}
                 ]}/>
                 <Section name="Files" isLink={true} isImage={false} content={[
-                    {title: "Resumé", link: "./src/assets/Files/Resume.pdf", image: "", size: 0},
-                    {title: "Curriculum Vitae", link: "./src/assets/Files/CV.pdf", image: "", size: 0}
+                    {title: "Resumé", link: "/assets/Files/Resume.pdf", image: "", size: 0},
+                    {title: "Curriculum Vitae", link: "/assets/Files/CV.pdf", image: "", size: 0}
                 ]}/>
                 <Section name="Papers" isLink={true} isImage={false} content={[
-                    {title: "BCNY's Purpose Shift: Arc to Dia", link: "./src/assets/Papers/BCNY's Purpose Shift: Arc to Dia.pdf", image: "", size: 4}
+                    {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/Papers/BCNY's Purpose Shift: Arc to Dia.pdf", image: "", size: 4}
                 ]}/>
                 <Section name="Socials" isLink={true} isImage={true} content={[
-                    {title: "BlueSky", link: "https://bsky.app", image: "./src/assets/Socials/Bluesky.png", size: 23},
-                    {title: "Threads", link: "https://threads.com", image: "./src/assets/Socials/Threads.png", size: 20},
-                    {title: "Linkedin", link: "https://linkedin.com", image: "./src/assets/Socials/Linkedin.png", size: 23}
+                    {title: "BlueSky", link: "https://bsky.app", image: "/assets/Socials/Bluesky.png", size: 23},
+                    {title: "Threads", link: "https://threads.com", image: "/assets/Socials/Threads.png", size: 20},
+                    {title: "Linkedin", link: "https://linkedin.com", image: "/assets/Socials/Linkedin.png", size: 23}
                 ]}/>
             </div>
         </>
