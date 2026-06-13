@@ -4,6 +4,7 @@ html, body {
   text-align: left;
   box-sizing: border-box;
   background-color: #FAFAFA;
+  font-family: "OpenRunde", Arial, Helvetica, sans-serif;
 }
 
 @font-face {
@@ -39,7 +40,6 @@ html, body {
 }
 
 .content {
-  font-family: "OpenRunde";
   color: rgb(22, 22, 22);
   display: flex;
   margin: auto;
@@ -60,22 +60,39 @@ html, body {
   list-style: none;
   padding: 0;
   margin: 15;
-  opacity: .8;
   cursor: pointer;
   font-weight: 100;
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+  transition: opacity .1s cubic-bezier(0.075, 0.82, 0.165, 1)
 }
 
-.sections li div {
-  list-style: none;
-  padding: 0;
-  margin: 15;
-  opacity: .8;
-  cursor: pointer;
-  font-weight: 100;
-  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+.item {
+  opacity: .7;
+  backface-visibility: hidden;
+  transition: opacity .1s cubic-bezier(0.075, 0.82, 0.165, 1)
 }
 
-.sections li div:hover {
+.item:hover {
   opacity: 1;
+}
+
+@keyframes socials {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+.image {
+  opacity: .6;
+  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.image:hover {
+  opacity: 1;
+  animation: socials 1s infinite cubic-bezier(0.165, 0.84, 0.44, 1);
 }
