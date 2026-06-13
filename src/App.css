@@ -1,0 +1,81 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+}
+
+@font-face {
+    font-family: "OpenRunde";
+    src: url("./assets/Fonts/OpenRunde-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenRunde";
+    src: url("./assets/Fonts/OpenRunde-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenRunde";
+    src: url("./assets/Fonts/OpenRunde-Semibold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OpenRunde";
+    src: url("./assets/Fonts/OpenRunde-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.content {
+  font-family: "OpenRunde";
+  color: rgb(22, 22, 22);
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh; 
+  max-width: 300px;
+  text-align: left;
+}
+
+.sections {
+  cursor: pointer;
+}
+
+
+.sections ul {
+  list-style: none;
+  padding: 0;
+  margin: 15;
+  opacity: .8;
+  cursor: pointer;
+  font-weight: 100;
+  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.sections li div {
+  list-style: none;
+  padding: 0;
+  margin: 15;
+  opacity: .8;
+  cursor: pointer;
+  font-weight: 100;
+  transition: opacity .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+}
+
+.sections li div:hover {
+  opacity: 1;
+}
