@@ -25,7 +25,7 @@ export default function Section({ name, content, isLink = false }: SectionProps)
                     {content && isOpen && (
                         content.map((item, index) => (
                             <div key={index} style={{marginTop: 15, marginLeft: 15, fontSize: 17}}>
-                            {isLink ? <a href={item.link} style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a> : <div>{item.title}</div>}
+                            {isLink ? <a href={item.link} target="_blank" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a> : <div>{item.title}</div>}
                         </div>
                         ))
                     )}
