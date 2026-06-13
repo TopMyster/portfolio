@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"
 
 interface ContentItem {
     title: string
@@ -28,15 +29,28 @@ export default function Section({ name, content, isLink = false, isImage = false
                     >
                         {name}
                     </div>
-                    <div style={{ display: "flex", flexDirection: isImage ? "row" : "column", marginLeft: isImage ? 5 : 0}}>
-                        {content && isOpen && (
-                        content.map((item, index) => (
+                    <AnimatePresence>
+                    {content && isOpen && (
+                    <motion.div 
+                        style={{ 
+                            display: "flex", 
+                            flexDirection: isImage ? "row" : "column", 
+                            marginLeft: isImage ? 5 : 0,
+                            cursor: isLink ? "pointer" : "default",
+                        }}
+                        initial={{y: -8, height: 0, opacity: 0}} 
+                        animate={{y: 0, height: "auto",  opacity: 1}} 
+                        exit={{y: -8, height: 0, opacity: 0}} 
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        {content.map((item, index) => (
                             <div key={index} className={isImage ? "image" : "item"} style={{marginTop: 15, marginLeft: isImage ? 8 : 15, fontSize: 17}}>
                                 {isLink && !isImage? <a href={item.link} target="_blank" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a> : isImage && isLink ? <a href={item.link} target="_blank"><img className={name} src={item.image} width={item.size} style={{margin: 0}}/></a> : <div>{item.title}</div>}
                             </div>
-                            ))
-                        )}
-                    </div>
+                            ))}
+                    </motion.div>
+                    )}
+                    </AnimatePresence>
                 </li>
             </ul>
         </>
