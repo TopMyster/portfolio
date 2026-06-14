@@ -53,6 +53,7 @@ html, body {
 
 .sections {
   cursor: pointer;
+  margin: 0;
 }
 
 
@@ -95,4 +96,10 @@ html, body {
 .image:hover {
   opacity: 1;
   animation: socials .8s infinite cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.music-container {
+  display: flex;
+  flex-direction: row;
+  cursor: default;
 }
