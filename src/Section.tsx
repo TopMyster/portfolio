@@ -5,7 +5,8 @@ interface ContentItem {
     title: string
     link: string
     image: string
-    size: number
+    width: number
+    height: number
 }
 interface SectionProps {
     name: string;
@@ -45,7 +46,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                     >
                         {content.map((item, index) => (
                             <div key={index} className={isImage ? "image" : "item"} style={{marginTop: 15, marginLeft: isImage ? 8 : 15, fontSize: 17}}>
-                                {isLink && !isImage? <a href={item.link} target="_blank" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a> : isImage && isLink ? <a href={item.link} target="_blank"><img className={name} src={item.image} width={item.size} height={item.size} style={{margin: 0}}/></a> : <div>{item.title}</div>}
+                                {isLink && !isImage? <a href={item.link} target="_blank" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a> : isImage && isLink ? <a href={item.link} target="_blank"><img className={name} src={item.image} width={item.width} height={item.height} style={{margin: 0}}/></a> : <div>{item.title}</div>}
                             </div>
                             ))}
                     </motion.div>
