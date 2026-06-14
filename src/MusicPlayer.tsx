@@ -36,13 +36,12 @@ export default function MusicPlayer() {
 
   return (
     <>
-      <div className="music-container" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div className="music-container" style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={() => setPlaying(!playing)} >
         <img 
           src={playing ? isDark ? playDark : playLight : isDark ? pausedDark : pausedLight} 
           width={17} 
           height={17} 
           style={{ cursor: 'pointer', margin: 0 }}
-          onClick={() => setPlaying(!playing)} 
           alt={playing ? "Pause" : "Play"}
         />
         <h5 style={{fontWeight: 500}}>Over The Horizon</h5>

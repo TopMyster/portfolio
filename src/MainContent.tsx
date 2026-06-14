@@ -4,8 +4,8 @@ export default function MainContent() {
     return(
         <>
             <MusicPlayer/>
-            <h2 style={{fontWeight: 500, margin: 0, marginBottom: 8, opacity: 1}}>Toope Oladunjoye</h2>
-            <h3 style={{fontWeight: 100, margin: 0, marginBottom: 30, opacity: .7}}>Software Engineer</h3>
+            <h2 style={{fontWeight: 500, margin: 0, marginBottom: 8, opacity: 1, cursor: "default" }}>Toope Oladunjoye</h2>
+            <h3 style={{fontWeight: 100, margin: 0, marginBottom: 30, opacity: .7, cursor: "default" }}>Software Engineer</h3>
             <div className="sections">
                 <Section name="About" isLink={false} isImage={false} content={[{title: "Hi, I'm Toope! I enjoy coding, designing software, and playing video games.", link: "", image: "", size: 0}]}/>
                 <Section name="Work" isLink={true} isImage={false} content={[

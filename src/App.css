@@ -108,7 +108,14 @@ html, body {
 }
 
 .music-container {
-  display: flex;
-  flex-direction: row;
-  cursor: default;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
+
+
+.music-container:active {
+  scale: .8;
+}
+
