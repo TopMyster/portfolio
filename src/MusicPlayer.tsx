@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import pausedLight from '/assets/Music/paused-light.png';
 import playLight from '/assets/Music/play-light.png';
+import pausedDark from '/assets/Music/paused-dark.png';
+import playDark from '/assets/Music/play-dark.png';
 
 export default function MusicPlayer() {
   const [playing, setPlaying] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -26,11 +29,16 @@ export default function MusicPlayer() {
     }
   }, [playing, audio]);
 
+  useEffect(() => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setIsDark(isDarkMode)
+  })
+
   return (
     <>
       <div className="music-container" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <img 
-          src={playing ? playLight : pausedLight} 
+          src={playing ? isDark ? playDark : playLight : isDark ? pausedDark : pausedLight} 
           width={17} 
           height={17} 
           style={{ cursor: 'pointer', margin: 0 }}
