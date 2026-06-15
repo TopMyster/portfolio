@@ -32,7 +32,7 @@ export default function Section({ name, content, isLink = false, isImage = false
     }, [isOpen])
 
     useEffect(() => {
-        if (!isOpen || !isVideo || !content) return;
+        if (!isVideo || !content) return;
 
         const videoUrls = content
             .map((item) => item.video)
