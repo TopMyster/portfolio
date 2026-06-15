@@ -81,8 +81,8 @@ export default function MainContent() {
                     name="Files" 
                     isLink={true} 
                     content={[
-                        {title: "Resumé", link: "/assets/Files/Resume.pdf"},
-                        {title: "Curriculum Vitae", link: "/assets/Files/CV.pdf"}
+                        {title: "Resumé", link: "/assets/files/Resume.pdf"},
+                        {title: "Curriculum Vitae", link: "/assets/files/CV.pdf"}
                     ]}
                 />
                 <Section 
