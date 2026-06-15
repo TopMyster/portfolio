@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import pausedLight from '/assets/Music/paused-light.png';
-import playLight from '/assets/Music/play-light.png';
-import pausedDark from '/assets/Music/paused-dark.png';
-import playDark from '/assets/Music/play-dark.png';
+import pausedLight from '/assets/music/paused-light.png';
+import playLight from '/assets/music/play-light.png';
+import pausedDark from '/assets/music/paused-dark.png';
+import playDark from '/assets/music/play-dark.png';
 
 export default function MusicPlayer() {
   const [playing, setPlaying] = useState(false);
@@ -13,7 +13,7 @@ export default function MusicPlayer() {
     : isDark ? pausedDark : pausedLight;
 
   useEffect(() => {
-    const music = new Audio('/assets/Music/Over%20the%20Horizon.mp3');
+    const music = new Audio('/assets/music/over-the-horizon.mp3');
     music.loop = true
     setAudio(music);
 

@@ -50,7 +50,7 @@ export default function MainContent() {
                     setIsEasterEgg(true);
                     if (score <= 100) {
                         setScore(score + 1);
-                        const audio = new Audio('/assets/Music/sound-effect.mp3')
+                        const audio = new Audio('/assets/music/sound-effect.mp3')
                         audio.play()
                         toast(`Your Score is: ${score}`);
                     }
@@ -70,11 +70,11 @@ export default function MainContent() {
                     isLink={true} 
                     isVideo={true} 
                     content={[
-                        {title: "Pokemon BSP", link: "https://github.com/TopMyster/pokemon-python", image: "", video: "/assets/Videos/Pokemon%20BSP.mp4"},
-                        {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", video: "/assets/Videos/DeskTama.mp4"},
-                        {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", video: "/assets/Videos/Rayterm.mp4"},
-                        {title: "Forma", link: "https://formasite.vercel.app/", image: "", video: "/assets/Videos/Forma.mp4"},
-                        {title: "Nova", link: "https://github.com/TopMyster/Nova", image: "", video: "/assets/Videos/Nova.mp4"}
+                        {title: "Pokemon BSP", link: "https://github.com/TopMyster/pokemon-python", image: "", video: "/assets/videos/pokemon-bsp.mp4"},
+                        {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", video: "/assets/videos/desktama.mp4"},
+                        {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", video: "/assets/videos/rayterm.mp4"},
+                        {title: "Forma", link: "https://formasite.vercel.app/", image: "", video: "/assets/videos/forma.mp4"},
+                        {title: "Nova", link: "https://github.com/TopMyster/Nova", image: "", video: "/assets/videos/nova.mp4"}
                     ]}
                 />
                 <Section 
@@ -89,7 +89,7 @@ export default function MainContent() {
                     name="Papers" 
                     isLink={true} 
                     content={[
-                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/Papers/BCNY%27s%20Purpose%20Shift%3A%20Arc%20to%20Dia.pdf"}
+                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/papers/BCNY's-Purpose-Shift:-Arc-to-Dia.pdf"}
                     ]}
                 />
                 <Section 
@@ -97,9 +97,9 @@ export default function MainContent() {
                     isLink={true} 
                     isImage={true} 
                     content={[
-                        {title: "Bluesky", link: "https://bsky.app/", image: "/assets/Socials/Bluesky.png", width: 23, height: 23},
-                        {title: "Threads", link: "https://www.threads.net/", image: "/assets/Socials/Threads.png", width: 23, height: 23},
-                        {title: "LinkedIn", link: "https://www.linkedin.com/", image: "/assets/Socials/Linkedin.png", width: 23, height: 23}
+                        {title: "Bluesky", link: "https://bsky.app/", image: "/assets/socials/bluesky.png", width: 23, height: 23},
+                        {title: "Threads", link: "https://www.threads.net/", image: "/assets/socials/threads.png", width: 23, height: 23},
+                        {title: "LinkedIn", link: "https://www.linkedin.com/", image: "/assets/socials/linkedin.png", width: 23, height: 23}
                     ]}
                 />
             </div>
