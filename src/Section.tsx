@@ -21,7 +21,6 @@ interface SectionProps {
 export default function Section({ name, content, isLink = false, isImage = false, isVideo = false }: SectionProps) {
     const [isOpen, setIsOpen] = useState(false)
     const [aniDone, isAniDone] = useState(false)
-    const [isLoaded, setIsLoaded] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
     const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null>(null);
     const hoveredItem = hoveredItemIndex !== null ? content?.[hoveredItemIndex] : undefined;
@@ -133,11 +132,6 @@ export default function Section({ name, content, isLink = false, isImage = false
                         animate={{ y: 0, scale: 1, opacity: 1 }}
                         exit={{ y: 200, scale: 0.6, opacity: 0 }}
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        style={{
-                            opacity: isLoaded ? 1 : 0,
-                            boxShadow: isLoaded ? undefined : "none",
-                            display: isLoaded ? "fixed" : "none"
-                        }}
                     >
                         <video 
                             src={hoveredItem.video}
@@ -148,9 +142,6 @@ export default function Section({ name, content, isLink = false, isImage = false
                             preload="auto"
                             width={500} 
                             height={500} 
-                            onLoadedData={() => {
-                                setIsLoaded(true)
-                            }}
                         />
                     </motion.div> 
                 </AnimatePresence>,
