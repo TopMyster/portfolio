@@ -50,6 +50,8 @@ export default function MainContent() {
                     setIsEasterEgg(true);
                     if (score <= 100) {
                         setScore(score + 1);
+                        let audio = new Audio('/assets/Music/sound-effect.mp3')
+                        audio.play()
                         toast(`Your Score is: ${score}`);
                     }
                 }}
