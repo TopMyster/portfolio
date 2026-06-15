@@ -8,7 +8,7 @@ export default function MainContent() {
             <h3 style={{fontWeight: 100, margin: 0, marginBottom: 30, opacity: .7, cursor: "default" }}>Software Engineer</h3>
             <div className="sections">
                 <Section name="About" isLink={false} isImage={false} content={[{title: "Hi, I'm Toope! I enjoy coding, designing software, and playing video games.", link: "", image: "", width: 0, height: 0}]}/>
-                <Section name="Work" isLink={true} isImage={false} content={[
+                <Section name="Work" isLink={true} isVideo={true} isImage={false} content={[
                     {title: "Pokemon BSP", link: "https://github.com/TopMyster/pokemon-python", image: "", width: 0, height: 0},
                     {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", width: 0, height: 0},
                     {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", width: 0, height: 0},
