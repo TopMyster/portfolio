@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react"
 
 interface ContentItem {
@@ -22,6 +23,7 @@ export default function Section({ name, content, isLink = false, isImage = false
     const [aniDone, isAniDone] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
     const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null>(null);
+    const hoveredItem = hoveredItemIndex !== null ? content?.[hoveredItemIndex] : undefined;
     
     useEffect(() => {
         if (isOpen === false) {
@@ -77,28 +79,6 @@ export default function Section({ name, content, isLink = false, isImage = false
                                         <div>{item.title}</div>
                                     )}
                                 </div>
-                                
-                                {hoveredItemIndex === index && isVideo && ( 
-                                    <motion.div 
-                                        className="project-preview"
-                                        initial={{ y: 140, scale: 0.6 }}
-                                        animate={{ y: 0, scale: 1 }}
-                                        exit={{ y: 200, scale: 0.6 }}
-                                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                                    >
-                                        <video 
-                                            autoPlay 
-                                            loop 
-                                            muted 
-                                            playsInline
-                                            preload="metadata"
-                                            width={500} 
-                                            height={500} 
-                                        >
-                                            <source src={item.video} type="video/mp4" />
-                                        </video>
-                                    </motion.div> 
-                                )}
                             </div>
                         ))}
                     </motion.div>
@@ -106,6 +86,34 @@ export default function Section({ name, content, isLink = false, isImage = false
                     </AnimatePresence>
                 </li>
             </ul>
+            {isVideo && createPortal(
+                <AnimatePresence>
+                    {hoveredItem?.video && (
+                        <motion.div 
+                            key={hoveredItem.video}
+                            className="project-preview"
+                            initial={{ y: 140, scale: 0.6, opacity: 0 }}
+                            animate={{ y: 0, scale: 1, opacity: 1 }}
+                            exit={{ y: 200, scale: 0.6, opacity: 0 }}
+                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <video 
+                                key={hoveredItem.video}
+                                autoPlay 
+                                loop 
+                                muted 
+                                playsInline
+                                preload="metadata"
+                                width={500} 
+                                height={500} 
+                            >
+                                <source key={hoveredItem.video} src={hoveredItem.video} type="video/mp4" />
+                            </video>
+                        </motion.div> 
+                    )}
+                </AnimatePresence>,
+                document.body
+            )}
         </>
     )
 }
