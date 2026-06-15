@@ -9,8 +9,8 @@ export default function MusicPlayer() {
   const [isDark, setIsDark] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const buttonIcon = playing
-    ? isDark ? pausedDark : pausedLight
-    : isDark ? playDark : playLight;
+    ? isDark ? playDark : playLight
+    : isDark ? pausedDark : pausedLight;
 
   useEffect(() => {
     const music = new Audio('/assets/Music/Over the Horizon.mp3');

@@ -22,7 +22,7 @@ export default function Footer() {
     }, []);
 
     console.log(`${quote} -${author}`)
-
+    
     return(
         <>
         </>
