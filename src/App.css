@@ -159,5 +159,6 @@ html, body {
     height: 100%;
     object-fit: contain; 
     background: #1c1e26;
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
