@@ -31,6 +31,43 @@ export default function Section({ name, content, isLink = false, isImage = false
         }
     }, [isOpen])
 
+    useEffect(() => {
+        if (!isOpen || !isVideo || !content) return;
+
+        const videoUrls = content
+            .map((item) => item.video)
+            .filter((video): video is string => Boolean(video));
+
+        const preloadLinks = videoUrls.map((video) => {
+            const link = document.createElement("link");
+            link.rel = "preload";
+            link.as = "video";
+            link.href = video;
+            link.type = "video/mp4";
+            document.head.appendChild(link);
+            return link;
+        });
+
+        const preloadVideos = videoUrls.map((video) => {
+            const element = document.createElement("video");
+            element.preload = "auto";
+            element.muted = true;
+            element.playsInline = true;
+            element.src = video;
+            element.load();
+            return element;
+        });
+
+        return () => {
+            preloadLinks.forEach((link) => link.remove());
+            preloadVideos.forEach((video) => {
+                video.pause();
+                video.removeAttribute("src");
+                video.load();
+            });
+        };
+    }, [content, isOpen, isVideo])
+
     return (
         <>
             <ul style={{padding: 0, margin: 0}}>
@@ -103,7 +140,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                                 loop 
                                 muted 
                                 playsInline
-                                preload="metadata"
+                                preload="auto"
                                 width={500} 
                                 height={500} 
                             >
