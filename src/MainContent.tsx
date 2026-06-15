@@ -81,15 +81,15 @@ export default function MainContent() {
                     name="Files" 
                     isLink={true} 
                     content={[
-                        {title: "Resumé", link: "/assets/files/Resume.pdf"},
-                        {title: "Curriculum Vitae", link: "/assets/files/CV.pdf"}
+                        {title: "Resumé", link: "/assets/files/resume.pdf"},
+                        {title: "Curriculum Vitae", link: "/assets/files/cv.pdf"}
                     ]}
                 />
                 <Section 
                     name="Papers" 
                     isLink={true} 
                     content={[
-                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/papers/BCNY's-Purpose-Shift:-Arc-to-Dia.pdf"}
+                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/papers/bcny-purpose-shift-arc-to-dia.pdf"}
                     ]}
                 />
                 <Section 
