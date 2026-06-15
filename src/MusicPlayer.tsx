@@ -8,6 +8,9 @@ export default function MusicPlayer() {
   const [playing, setPlaying] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const buttonIcon = playing
+    ? isDark ? pausedDark : pausedLight
+    : isDark ? playDark : playLight;
 
   useEffect(() => {
     const music = new Audio('/assets/Music/Over the Horizon.mp3');
@@ -30,15 +33,24 @@ export default function MusicPlayer() {
   }, [playing, audio]);
 
   useEffect(() => {
-    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setIsDark(isDarkMode)
-  })
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const updateTheme = (event: MediaQueryList | MediaQueryListEvent) => {
+      setIsDark(event.matches);
+    };
+
+    updateTheme(mediaQuery);
+    mediaQuery.addEventListener('change', updateTheme);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateTheme);
+    };
+  }, [])
 
   return (
     <>
-      <div className="music-container" style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={() => setPlaying(!playing)} >
+      <div className="music-container" style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }} onClick={() => setPlaying((current) => !current)} >
         <img 
-          src={playing ? isDark ? playDark : playLight : isDark ? pausedDark : pausedLight} 
+          src={buttonIcon} 
           width={17} 
           height={17} 
           style={{ cursor: 'pointer', margin: 0 }}

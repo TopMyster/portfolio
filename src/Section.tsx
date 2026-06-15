@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence } from "motion/react"
 
 interface ContentItem {
     title: string;
-    link: string;
-    image: string;
-    width: number;
-    height: number
+    link?: string;
+    image?: string;
+    video?: string;
+    width?: number;
+    height?: number
 }
 interface SectionProps {
     name: string;
@@ -23,10 +24,10 @@ export default function Section({ name, content, isLink = false, isImage = false
     const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null>(null);
     
     useEffect(() => {
-        if (isOpen == false) {
+        if (isOpen === false) {
             isAniDone(false)
         }
-    })
+    }, [isOpen])
 
     return (
         <>
@@ -70,7 +71,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                                         <a href={item.link} target="_blank" rel="noreferrer" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a>
                                     ) : isImage && isLink ? (
                                         <a href={item.link} target="_blank" rel="noreferrer">
-                                            <img className={name} src={item.image} width={item.width} height={item.height} style={{margin: 0}} alt={item.title}/>
+                                            <img className="contact-image" src={item.image} width={item.width} height={item.height} style={{margin: 0}} alt={item.title}/>
                                         </a>
                                     ) : (
                                         <div>{item.title}</div>
@@ -90,10 +91,11 @@ export default function Section({ name, content, isLink = false, isImage = false
                                             loop 
                                             muted 
                                             playsInline
+                                            preload="metadata"
                                             width={500} 
                                             height={500} 
                                         >
-                                            <source src={`/assets/Videos/${item.title}.mp4`} type="video/mp4" />
+                                            <source src={item.video} type="video/mp4" />
                                         </video>
                                     </motion.div> 
                                 )}

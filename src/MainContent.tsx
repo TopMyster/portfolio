@@ -9,21 +9,21 @@ export default function MainContent() {
     const [done, setDone] = useState(false)
 
     useEffect(() => {
-        if (score == 11) {
+        if (score === 11) {
             toast(
                 <>
                     Reward:<br></br>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs" style={{ color: "grey" }} target="_blank">Here's this link</a>
                 </>
             )
-        } else if (score == 51) {
+        } else if (score === 51) {
             toast(
                 <>
                     Reward:<br></br>
                     <a href="https://www.google.com/search?q=persona%204" style={{ color: "grey" }} target="_blank">Here's my favorite Game. Try it out! </a>
                 </>
             )
-        } else if (score == 101) {
+        } else if (score === 101) {
             toast(
                 <div style={{lineHeight: 2}}>
                     Thanks for checking out my portfolio!<br></br>
@@ -33,7 +33,7 @@ export default function MainContent() {
             )
             setDone(true)
         }
-    })
+    }, [score])
 
     return (
         <>
@@ -46,7 +46,13 @@ export default function MainContent() {
             <MusicPlayer/> 
             <h2 
                 style={{fontWeight: 500, margin: 0, marginBottom: 8, opacity: 1, cursor: "pointer", userSelect: isEasterEgg ? "none" : undefined, WebkitUserSelect: isEasterEgg ? "none" : undefined, MozUserSelect: isEasterEgg ? "none" : undefined }}
-                onClick={() => {setIsEasterEgg(true); score <= 100 ? setScore(score+1) : null; score <= 100 ? toast(`Your Score is: ${score}`) : null}}
+                onClick={() => {
+                    setIsEasterEgg(true);
+                    if (score <= 100) {
+                        setScore(score + 1);
+                        toast(`Your Score is: ${score}`);
+                    }
+                }}
             >
                 Toope Oladunjoye
             </h2>
@@ -54,44 +60,34 @@ export default function MainContent() {
             <div className="sections">
                 <Section 
                     name="About" 
-                    isLink={false} 
-                    isImage={false} 
                     content={[
-                        {title: "Hi, I'm Toope! I enjoy coding, designing software, and playing video games.", 
-                        link: "", 
-                        image: "", 
-                        width: 0, 
-                        height: 0
-                    }]}
+                        {title: "Hi, I'm Toope! I enjoy coding, designing software, and playing video games."}]}
                 />
                 <Section 
                     name="Work" 
                     isLink={true} 
                     isVideo={true} 
-                    isImage={false} 
                     content={[
-                        {title: "Pokemon BSP", link: "https://github.com/TopMyster/pokemon-python", image: "", width: 0, height: 0},
-                        {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", width: 0, height: 0},
-                        {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", width: 0, height: 0},
-                        {title: "Forma", link: "https://formasite.vercel.app/", image: "", width: 0, height: 0},
-                        {title: "Nova", link: "https://github.com/TopMyster/Nova", image: "", width: 0, height: 0}
+                        {title: "Pokemon BSP", link: "https://github.com/TopMyster/pokemon-python", image: "", video: "/assets/Videos/Pokemon%20BSP.mp4"},
+                        {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", video: "/assets/Videos/DeskTama.mp4"},
+                        {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", video: "/assets/Videos/Rayterm.mp4"},
+                        {title: "Forma", link: "https://formasite.vercel.app/", image: "", video: "/assets/Videos/Forma.mp4"},
+                        {title: "Nova", link: "https://github.com/TopMyster/Nova", image: "", video: "/assets/Videos/Nova.mp4"}
                     ]}
                 />
                 <Section 
                     name="Files" 
                     isLink={true} 
-                    isImage={false} 
                     content={[
-                        {title: "Resumé", link: "/assets/Files/Resume.pdf", image: "", width: 0, height: 0},
-                        {title: "Curriculum Vitae", link: "/assets/Files/CV.pdf", image: "", width: 0, height: 0}
+                        {title: "Resumé", link: "/assets/Files/Resume.pdf"},
+                        {title: "Curriculum Vitae", link: "/assets/Files/CV.pdf"}
                     ]}
                 />
                 <Section 
                     name="Papers" 
                     isLink={true} 
-                    isImage={false} 
                     content={[
-                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/Papers/BCNY's Purpose Shift: Arc to Dia.pdf", image: "", width: 0, height: 0}
+                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/Papers/BCNY's Purpose Shift: Arc to Dia.pdf"}
                     ]}
                 />
                 <Section 
@@ -99,9 +95,9 @@ export default function MainContent() {
                     isLink={true} 
                     isImage={true} 
                     content={[
-                        {title: "BlueSky", link: "https://bsky.app", image: "/assets/Socials/Bluesky.png", width: 23, height: 23},
-                        {title: "Threads", link: "https://threads.com", image: "/assets/Socials/Threads.png", width: 20, height: 22},
-                        {title: "Linkedin", link: "https://linkedin.com", image: "/assets/Socials/Linkedin.png", width: 23, height: 23}
+                        {title: "Bluesky", link: "https://bsky.app/", image: "/assets/Socials/Bluesky.png", width: 23, height: 23},
+                        {title: "Threads", link: "https://www.threads.net/", image: "/assets/Socials/Threads.png", width: 23, height: 23},
+                        {title: "LinkedIn", link: "https://www.linkedin.com/", image: "/assets/Socials/Linkedin.png", width: 23, height: 23}
                     ]}
                 />
             </div>
