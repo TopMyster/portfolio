@@ -123,27 +123,31 @@ export default function Section({ name, content, isLink = false, isImage = false
                     </AnimatePresence>
                 </li>
             </ul>
-            {isVideo && hoveredItem?.video && createPortal(
-                <AnimatePresence mode="popLayout">
-                    <motion.div 
-                        key={hoveredItem.video}
-                        className="project-preview"
-                        initial={{ y: 140, scale: 0.6, opacity: 0 }}
-                        animate={{ y: 0, scale: 1, opacity: 1 }}
-                        exit={{ y: 200, scale: 0.6, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                        <video 
-                            src={hoveredItem.video}
-                            autoPlay 
-                            loop 
-                            muted 
-                            playsInline
-                            preload="auto"
-                            width={500} 
-                            height={500} 
-                        />
-                    </motion.div> 
+            {isVideo && createPortal(
+                <AnimatePresence>
+                    {hoveredItem?.video && (
+                        <motion.div 
+                            key={hoveredItem.video}
+                            className="project-preview"
+                            initial={{ y: 140, scale: 0.6, opacity: 0 }}
+                            animate={{ y: 0, scale: 1, opacity: 1 }}
+                            exit={{ y: 200, scale: 0.6, opacity: 0 }}
+                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <video 
+                                key={hoveredItem.video}
+                                autoPlay 
+                                loop 
+                                muted 
+                                playsInline
+                                preload="auto"
+                                width={500} 
+                                height={500} 
+                            >
+                                <source key={hoveredItem.video} src={hoveredItem.video} type="video/mp4" />
+                            </video>
+                        </motion.div> 
+                    )}
                 </AnimatePresence>,
                 document.body
             )}
