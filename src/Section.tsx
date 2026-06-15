@@ -66,7 +66,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                 video.load();
             });
         };
-    }, [content, isOpen, isVideo])
+    }, [content, isVideo])
 
     return (
         <>
