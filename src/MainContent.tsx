@@ -50,7 +50,7 @@ export default function MainContent() {
                     setIsEasterEgg(true);
                     if (score <= 100) {
                         setScore(score + 1);
-                        let audio = new Audio('/assets/Music/sound-effect.mp3')
+                        const audio = new Audio('/assets/Music/sound-effect.mp3')
                         audio.play()
                         toast(`Your Score is: ${score}`);
                     }
@@ -89,7 +89,7 @@ export default function MainContent() {
                     name="Papers" 
                     isLink={true} 
                     content={[
-                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/Papers/BCNY's Purpose Shift: Arc to Dia.pdf"}
+                        {title: "BCNY's Purpose Shift: Arc to Dia", link: "/assets/Papers/BCNY%27s%20Purpose%20Shift%3A%20Arc%20to%20Dia.pdf"}
                     ]}
                 />
                 <Section 

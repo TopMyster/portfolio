@@ -13,7 +13,7 @@ export default function MusicPlayer() {
     : isDark ? pausedDark : pausedLight;
 
   useEffect(() => {
-    const music = new Audio('/assets/Music/Over the Horizon.mp3');
+    const music = new Audio('/assets/Music/Over%20the%20Horizon.mp3');
     music.loop = true
     setAudio(music);
 
