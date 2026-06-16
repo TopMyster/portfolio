@@ -23,7 +23,7 @@ export default function Footer() {
     }, []);
 
     console.log(`${quote} -${author}`)
-    console.log(`© ${year.getFullYear} Toope Oladunjoye `)
+    console.log(`© ${year.getFullYear()} Toope Oladunjoye `)
     return(
         <>
         </>
