@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 export default function Footer() {
     const [quote, setQuote] = useState("")
     const [author, setAuthor] = useState("")
+    let year = new Date
     
     useEffect(() => {
         async function getQuote() {
@@ -22,7 +23,7 @@ export default function Footer() {
     }, []);
 
     console.log(`${quote} -${author}`)
-    
+    console.log(`© ${year.getFullYear} Toope Oladunjoye `)
     return(
         <>
         </>
