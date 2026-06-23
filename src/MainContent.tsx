@@ -3,7 +3,7 @@ import MusicPlayer from "./MusicPlayer"
 import Section from "./Section"
 import { Toaster, toast } from "sonner"
 
-export default function MainContent() {
+export default function Content() {
     const [isEasterEgg, setIsEasterEgg] = useState(false)
     const [score, setScore] = useState(1)
     const [done, setDone] = useState(false)
