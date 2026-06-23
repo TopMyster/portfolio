@@ -26,6 +26,12 @@ export default function Section({ name, content, isLink = false, isImage = false
     const hoveredItem = hoveredItemIndex !== null ? content?.[hoveredItemIndex] : undefined;
     
     useEffect(() => {
+        const handleClose = (e: any) => { if (e.detail !== name) setIsOpen(false); };
+        window.addEventListener("close", handleClose);
+        return () => window.removeEventListener("close", handleClose);
+    }, [name]);
+
+    useEffect(() => {
         if (isOpen === false) {
             isAniDone(false)
         }
@@ -74,7 +80,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                 <li style={{listStyle: "none", marginBottom: 15}}>
                     <div
                         style={{fontSize: 20, textDecoration: "none", cursor: "pointer", display: "inline-block", fontWeight: isOpen ? 500 : undefined, opacity: isOpen || isHovered ? 1 : 0.7}}
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={() => { if (!isOpen) window.dispatchEvent(new CustomEvent("close", { detail: name })); setIsOpen(!isOpen); }}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                     >
@@ -113,7 +119,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                                             <img className="contact-image" src={item.image} width={item.width} height={item.height} style={{margin: 0}} alt={item.title}/>
                                         </a>
                                     ) : (
-                                        <div>{item.title}</div>
+                                        <div style={{lineHeight: 1.4}}>{item.title}</div>
                                     )}
                                 </div>
                             </div>

@@ -67,7 +67,7 @@ export default function Content() {
                 <Section 
                     name="About" 
                     content={[
-                        {title: "Hi, I'm Toope! I enjoy coding, designing software, and playing video games."}]}
+                        {title: "Hi, I'm Toope! I enjoy coding, designing software, and playing video games. "}]}
                 />
                 <Section 
                     name="Work" 

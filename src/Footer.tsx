@@ -3,8 +3,9 @@ import { useState, useEffect } from "react"
 export default function Footer() {
     const [quote, setQuote] = useState("")
     const [author, setAuthor] = useState("")
-    let year = new Date
-    
+    const [timeElapsed, setTimeElapsed] = useState({ years: 0, months: 0, days: 0 })
+    let year = new Date().getFullYear()
+
     useEffect(() => {
         async function getQuote() {
             try {
@@ -18,13 +19,42 @@ export default function Footer() {
                 setAuthor("Matthew 11:28");
             }
         }
+
+        function timeSinceCreation() {
+            const start = new Date("2026-06-13T00:00:00")
+            const now = new Date()
+
+            let years = now.getFullYear() - start.getFullYear()
+            let months = now.getMonth() - start.getMonth()
+            let days = now.getDate() - start.getDate()
+
+            if (days < 0) {
+                const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0)
+                days += previousMonth.getDate()
+                months--
+            }
+
+            if (months < 0) {
+                months += 12
+                years--
+            }
+
+            setTimeElapsed({ years, months, days })
+        }
         
-        getQuote();
+        getQuote()
+        timeSinceCreation()
     }, []);
 
-    console.log(`${quote} -${author}`)
-    console.log(`© ${year.getFullYear()} Toope Oladunjoye `)
-    return(
+    useEffect(() => {
+        if (quote) { 
+            console.log(`${quote} -${author}`)
+            console.log(`It's been ${timeElapsed.years} years, ${timeElapsed.months} months, and ${timeElapsed.days} days since I've made this portfolio`)
+            console.log(`© ${year} Toope Oladunjoye `)
+        }
+    }, [quote, author, year]); 
+
+    return (
         <>
         </>
     )
