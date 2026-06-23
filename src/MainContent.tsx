@@ -5,7 +5,7 @@ import { Toaster, toast } from "sonner"
 
 export default function MainContent() {
     const [isEasterEgg, setIsEasterEgg] = useState(false)
-    const [score, setScore] = useState(0)
+    const [score, setScore] = useState(1)
     const [done, setDone] = useState(false)
 
     useEffect(() => {
