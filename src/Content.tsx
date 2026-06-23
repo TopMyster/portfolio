@@ -5,25 +5,29 @@ import { Toaster, toast } from "sonner"
 
 export default function Content() {
     const [isEasterEgg, setIsEasterEgg] = useState(false)
-    const [score, setScore] = useState(1)
+    const [score, setScore] = useState(0)
     const [done, setDone] = useState(false)
 
     useEffect(() => {
-        if (score === 11) {
+        if (!isEasterEgg) return
+
+        toast(`Your Score is: ${score}`);
+        
+        if (score === 10) {
             toast(
                 <>
                     Reward:<br></br>
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs" style={{ color: "grey" }} target="_blank">Here's this link</a>
                 </>
             )
-        } else if (score === 51) {
+        } else if (score === 50) {
             toast(
                 <>
                     Reward:<br></br>
                     <a href="https://www.google.com/search?q=persona%204" style={{ color: "grey" }} target="_blank">Here's my favorite Game. Try it out! </a>
                 </>
             )
-        } else if (score === 101) {
+        } else if (score === 100) {
             toast(
                 <div style={{lineHeight: 2}}>
                     Thanks for checking out my portfolio!<br></br>
@@ -33,7 +37,7 @@ export default function Content() {
             )
             setDone(true)
         }
-    }, [score])
+    }, [score, isEasterEgg])
 
     return (
         <>
@@ -48,11 +52,11 @@ export default function Content() {
                 style={{fontWeight: 500, margin: 0, marginBottom: 8, opacity: 1, cursor: "pointer", userSelect: isEasterEgg ? "none" : undefined, WebkitUserSelect: isEasterEgg ? "none" : undefined, MozUserSelect: isEasterEgg ? "none" : undefined }}
                 onClick={() => {
                     setIsEasterEgg(true);
-                    if (score <= 100) {
-                        setScore(score + 1);
+                    if (score < 100) {
+                        let newScore = score + 1
+                        setScore(newScore);
                         const audio = new Audio('/assets/music/sound-effect.mp3')
                         audio.play()
-                        toast(`Your Score is: ${score}`);
                     }
                 }}
             >
