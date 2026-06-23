@@ -116,7 +116,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                                         <a href={item.link} target="_blank" rel="noreferrer" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a>
                                     ) : isImage && isLink ? (
                                         <a href={item.link} target="_blank" rel="noreferrer">
-                                            <img className="contact-image" src={item.image} width={item.width} height={item.height} style={{margin: 0}} alt={item.title}/>
+                                            <motion.img className="contact-image" src={item.image} width={item.width} height={item.height} style={{margin: 0, userSelect: "none", WebkitUserSelect: "none", MozUserSelect: "none"}} alt={item.title} initial={{y: -50}} animate={{y:0}} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}/>
                                         </a>
                                     ) : (
                                         <div style={{lineHeight: 1.4}}>{item.title}</div>
