@@ -119,7 +119,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                                             <motion.img className="contact-image" src={item.image} width={item.width} height={item.height} style={{margin: 0, userSelect: "none", WebkitUserSelect: "none", MozUserSelect: "none"}} alt={item.title} initial={{y: -50}} animate={{y:0}} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}/>
                                         </a>
                                     ) : (
-                                        <div style={{lineHeight: 1.4}}>{item.title}</div>
+                                        <div style={{lineHeight: 1.4, cursor: "text"}}>{item.title}</div>
                                     )}
                                 </div>
                             </div>
