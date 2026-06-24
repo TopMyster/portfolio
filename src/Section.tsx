@@ -144,7 +144,6 @@ export default function Section({ name, content, isLink = false, isImage = false
                                 key={hoveredItem.video}
                                 autoPlay 
                                 loop 
-                                muted 
                                 playsInline
                                 preload="auto"
                                 width={500} 
