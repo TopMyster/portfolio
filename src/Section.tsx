@@ -79,7 +79,7 @@ export default function Section({ name, content, isLink = false, isImage = false
             <ul style={{padding: 0, margin: 0}}>
                 <li style={{listStyle: "none", marginBottom: 15}}>
                     <div
-                        style={{fontSize: 20, textDecoration: "none", cursor: "pointer", display: "inline-block", fontWeight: isOpen ? 500 : undefined, opacity: isOpen || isHovered ? 1 : 0.7}}
+                        style={{fontSize: 22, textDecoration: "none", cursor: "pointer", display: "inline-block", fontWeight: isOpen ? 500 : undefined, opacity: isOpen || isHovered ? 1 : 0.7}}
                         onClick={() => { if (!isOpen) window.dispatchEvent(new CustomEvent("close", { detail: name })); setIsOpen(!isOpen); }}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
@@ -110,7 +110,7 @@ export default function Section({ name, content, isLink = false, isImage = false
                             >
                                 <div 
                                     className={isImage ? "image" : "item"} 
-                                    style={{marginTop: 15, marginLeft: isImage ? 8 : 15, fontSize: 17}} 
+                                    style={{marginTop: 15, marginLeft: isImage ? 8 : 15, fontSize: 18}} 
                                 >
                                     {isLink && !isImage ? (
                                         <a href={item.link} target="_blank" rel="noreferrer" style={{textDecoration: "underline", color: "inherit"}}>{item.title}↗</a>
