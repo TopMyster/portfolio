@@ -74,7 +74,7 @@ export default function Content() {
                     isLink={true} 
                     isVideo={true} 
                     content={[
-                        {title: "Pokemon BSP", link: "https://github.com/TopMyster/pokemon-python", image: "", video: "/assets/videos/pokemon-bsp.mp4"},
+                        {title: "NotchScript", link: "https://github.com/TopMyster/notchscript", image: "", video: "/assets/videos/notchscript.mp4"},
                         {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", video: "/assets/videos/desktama.mp4"},
                         {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", video: "/assets/videos/rayterm.mp4"},
                         {title: "Jarvis", link: "https://github.com/TopMyster/Jarvis", image: "", video: "/assets/videos/jarvis.mp4"},
