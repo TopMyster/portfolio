@@ -78,7 +78,7 @@ export default function Content() {
                         {title: "DeskTama", link: "https://github.com/TopMyster/DeskTama", image: "", video: "/assets/videos/desktama.mp4"},
                         {title: "Rayterm", link: "https://github.com/TopMyster/rayterm", image: "", video: "/assets/videos/rayterm.mp4"},
                         {title: "Jarvis", link: "https://github.com/TopMyster/Jarvis", image: "", video: "/assets/videos/jarvis.mp4"},
-                        {title: "Nova", link: "https://github.com/TopMyster/Nova", image: "", video: "/assets/videos/nova.mp4"}
+                        {title: "Nexus", link: "https://nexusstart.vercel.app", image: "", video: "/assets/videos/nexus.mp4"}
                     ]}
                 />
                 <Section 
