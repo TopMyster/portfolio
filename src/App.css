@@ -156,7 +156,8 @@ html, body {
   }
 
   .project-preview video {
-    border-radius: 15px;
+    border: 0.5px solid grey;
+    border-radius: 16px;
     display: block;
     width: 100%;
     height: 100%;
