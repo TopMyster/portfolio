@@ -95,9 +95,9 @@ export default function Section({ name, content, isLink = false, isImage = false
                             marginLeft: isImage ? 5 : 0,
                             cursor: isLink ? "pointer" : "default",
                         }}
-                        initial={{ y: -8, height: 0, opacity: 0, scale: 0.6 }} 
-                        animate={{ y: 0, height: "auto",  opacity: 1, scale: 1 }} 
-                        exit={{ y: -8, height: 0, opacity: 0, scale: 0.6 }} 
+                        initial={{ y: -8, filter: "blur(10px)", height: 0, opacity: 0, scale: 0.6 }} 
+                        animate={{ y: 0, filter: "blur(0px)", height: "auto",  opacity: 1, scale: 1 }} 
+                        exit={{ y: -8, filter: "blur(10px)", height: 0, opacity: 0, scale: 0.6 }} 
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         onAnimationComplete={ () => {isAniDone(true)} }
                     >

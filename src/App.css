@@ -120,7 +120,7 @@ html, body {
 }
 
 .music-container {
-  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -129,6 +129,7 @@ html, body {
 
 .music-container:active {
   scale: .8;
+  filter: blur(8px);
 }
 
 .project-preview {
