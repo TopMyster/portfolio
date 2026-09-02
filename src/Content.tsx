@@ -2,11 +2,23 @@ import { useEffect, useState } from "react"
 import MusicPlayer from "./MusicPlayer"
 import Section from "./Section"
 import { Toaster, toast } from "sonner"
+import Scritto from "@scritto/react"
 
 export default function Content() {
     const [isEasterEgg, setIsEasterEgg] = useState(false)
     const [score, setScore] = useState(0)
     const [done, setDone] = useState(false)
+    const [count, setCount] = useState(0)
+
+    const descs: Record<number, string> = {
+        1 : "Software Engineer",
+        2 : "Designer",
+        3 : "Friend",
+        4 : "Brother",
+        5 : "Son"
+    };
+
+    const desc = descs[count] || "Software Engineer"
 
     useEffect(() => {
         if (!isEasterEgg) return
@@ -62,8 +74,8 @@ export default function Content() {
             >
                 Toope Oladunjoye
             </h2>
-            <h3 style={{fontWeight: 100, margin: 0, marginBottom: 30, opacity: .7, cursor: "default" }}>Software Engineer</h3>
-            <div className="sections">
+            <Scritto onClick={() => {setCount(count < 5 ? count + 1  : 1)}} value={desc} trend={1} transition={{ duration: 400 }} style={{ fontSize: 19, fontWeight: 100, margin: 0, marginBottom: 30, opacity: .7, cursor: "default" }}/>
+              <div className="sections">
                 <Section 
                     name="About" 
                     content={[

@@ -129,7 +129,8 @@ html, body {
 
 .music-container:active {
   scale: .8;
-  filter: blur(8px);
+  transform: translateY(25%);
+  filter: blur(7px);
 }
 
 .project-preview {
