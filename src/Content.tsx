@@ -79,7 +79,7 @@ export default function Content() {
                 <Section 
                     name="About" 
                     content={[
-                        {title: "Hi, I'm Toope! I really enjoy creating fun software, running, and video games. "}]}
+                        {title: "Hi, I'm Toope! I really enjoy creating fun software, running, and playing guitar."}]}
                 />
                 <Section 
                     name="Work" 

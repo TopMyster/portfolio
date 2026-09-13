@@ -136,22 +136,17 @@ html, body {
 .project-preview {
   display: none;
   visibility: hidden;
-  right: -9999px;
-  bottom: -9999px;
 }
 
 @media (min-width: 860px) {
   .project-preview {
-    display: block; 
+    display: block;
     visibility: visible;
-    position: fixed; 
-    z-index: 100;
-    pointer-events: none; 
-    right: 6vw;
-    bottom: 10vh;
-    width: fit-content;
-    height: fit-content;
-    max-width: 500px;
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    width: 360px;
+    max-width: min(40vw, 360px);
     border-radius: 15px;
     background-color: transparent;
   }
@@ -161,8 +156,9 @@ html, body {
     border-radius: 16px;
     display: block;
     width: 100%;
+    max-height: 350px;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     background: none;
     transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
   }

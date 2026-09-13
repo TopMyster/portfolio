@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react"
 
 interface ContentItem {
@@ -23,8 +22,17 @@ export default function Section({ name, content, isLink = false, isImage = false
     const [aniDone, isAniDone] = useState(false)
     const [isHovered, setIsHovered] = useState(false)
     const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null>(null);
-    const hoveredItem = hoveredItemIndex !== null ? content?.[hoveredItemIndex] : undefined;
+    const [pointer, setPointer] = useState({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
     
+    useEffect(() => {
+        const handlePointerMove = (event: MouseEvent) => {
+            setPointer({ x: event.clientX, y: event.clientY });
+        };
+
+        window.addEventListener("mousemove", handlePointerMove);
+        return () => window.removeEventListener("mousemove", handlePointerMove);
+    }, []);
+
     useEffect(() => {
         const handleClose = (e: any) => { if (e.detail !== name) setIsOpen(false); };
         window.addEventListener("close", handleClose);
@@ -105,7 +113,11 @@ export default function Section({ name, content, isLink = false, isImage = false
                             <div 
                                 key={index}
                                 style={{ position: "relative" }} 
-                                onMouseEnter={aniDone ? () => setHoveredItemIndex(index) : undefined}
+                                onMouseEnter={aniDone ? (event) => {
+                                    setHoveredItemIndex(index);
+                                    setPointer({ x: event.clientX, y: event.clientY });
+                                } : undefined}
+                                onMouseMove={aniDone ? (event) => setPointer({ x: event.clientX, y: event.clientY }) : undefined}
                                 onMouseLeave={aniDone ? () => setHoveredItemIndex(null) : undefined}
                             >
                                 <div 
@@ -122,6 +134,39 @@ export default function Section({ name, content, isLink = false, isImage = false
                                         <div style={{lineHeight: 1.4, cursor: "text"}}>{item.title}</div>
                                     )}
                                 </div>
+
+                                <AnimatePresence>
+                                    {isVideo && hoveredItemIndex === index && item.video && (
+                                        <motion.div 
+                                            key={item.video}
+                                            className="project-preview"
+                                            initial={{ x: 18, y: 0, scale: 0.8, opacity: 0 }}
+                                            animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
+                                            exit={{ x: 18, y: 0, scale: 0.8, opacity: 0 }}
+                                            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                                            style={{
+                                                position: "fixed",
+                                                left: Math.min(window.innerWidth - 50, pointer.x - 280),
+                                                top: Math.max(22, pointer.y - 10000),
+                                                zIndex: 20,
+                                                pointerEvents: "none",
+                                            }}
+                                        >
+                                            <video 
+                                                key={item.video}
+                                                autoPlay 
+                                                muted={window.innerWidth < 860}
+                                                loop 
+                                                playsInline
+                                                preload="auto"
+                                                width={180}
+                                                height={180}
+                                            >
+                                                <source key={item.video} src={item.video} type="video/mp4" />
+                                            </video>
+                                        </motion.div> 
+                                    )}
+                                </AnimatePresence>
                             </div>
                         ))}
                     </motion.div>
@@ -129,34 +174,6 @@ export default function Section({ name, content, isLink = false, isImage = false
                     </AnimatePresence>
                 </li>
             </ul>
-            {isVideo && createPortal(
-                <AnimatePresence>
-                    {hoveredItem?.video && (
-                        <motion.div 
-                            key={hoveredItem.video}
-                            className="project-preview"
-                            initial={{ y: 140, scale: 0.6, opacity: 0 }}
-                            animate={{ y: 0, scale: 1, opacity: 1 }}
-                            exit={{ y: 200, scale: 0.6, opacity: 0 }}
-                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <video 
-                                key={hoveredItem.video}
-                                autoPlay 
-                                muted={window.innerWidth < 860}
-                                loop 
-                                playsInline
-                                preload="auto"
-                                width={500} 
-                                height={500} 
-                            >
-                                <source key={hoveredItem.video} src={hoveredItem.video} type="video/mp4" />
-                            </video>
-                        </motion.div> 
-                    )}
-                </AnimatePresence>,
-                document.body
-            )}
         </>
     )
 }
