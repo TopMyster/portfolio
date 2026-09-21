@@ -12,8 +12,8 @@ export default function App() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           <Content/>
-          <Footer/>
         </motion.div>
+        <Footer/>
       </AnimatePresence>
    </>
   )

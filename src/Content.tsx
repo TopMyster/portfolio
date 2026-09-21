@@ -28,7 +28,7 @@ export default function Content() {
                     setNameCount(0)
                 }, 1000)
             }} value={name} trend={1} transition={{ duration: 500 }} style={{ fontSize: 23, fontWeight: 500, margin: 0, marginBottom: 8, opacity: 1, cursor: "pointer", userSelect: "none", WebkitUserSelect: "none", MozUserSelect: "none"}}/>
-            <Scritto onClick={() => {setCount(count < 5 ? count + 1  : 1)}} value={desc} trend={1} transition={{ duration: 400 }} style={{ fontSize: 19, fontWeight: 100, margin: 0, marginBottom: 40, opacity: .7, cursor: "default" }}/>
+            <Scritto onClick={() => {setCount(count < 5 ? count + 1  : 1)}} value={desc} trend={1} transition={{ duration: 400 }} style={{ fontSize: 19, fontWeight: 100, margin: 0, marginBottom: 40, opacity: .65, cursor: "default" }}/>
               <div className="sections">
                 <Section 
                     name="About" 

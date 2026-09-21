@@ -50,12 +50,12 @@ export default function Footer() {
         if (quote) { 
             console.log(`${quote} -${author}`)
             console.log(`It's been ${timeElapsed.years} years, ${timeElapsed.months} months, and ${timeElapsed.days} days since I've made this portfolio`)
-            console.log(`© ${year} Toope Oladunjoye `)
         }
     }, [quote, author, year]); 
 
     return (
         <>
+         <div className="footer">{author} - © {year} Toope Oladunjoye</div>
         </>
     )
 }

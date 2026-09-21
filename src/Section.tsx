@@ -88,7 +88,7 @@ export default function Section({ name, content, isLink = false, isImage = false
             <ul style={{padding: 0, margin: 0}}>
                 <li style={{listStyle: "none", marginBottom: 15}}>
                     <div
-                        style={{fontSize: 21, textDecoration: "none", cursor: "pointer", display: "inline-block", fontWeight: isOpen ? 500 : undefined, opacity: isOpen || isHovered ? 1 : 0.7}}
+                        style={{fontSize: 21, textDecoration: "none", cursor: "pointer", display: "inline-block", fontWeight: isOpen ? 500 : undefined, opacity: isOpen || isHovered ? 1 : 0.65}}
                         onClick={() => { if (!isOpen) window.dispatchEvent(new CustomEvent("close", { detail: name })); setIsOpen(!isOpen); }}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
