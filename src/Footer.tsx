@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from 'motion/react'
 
 export default function Footer() {
     const [quote, setQuote] = useState("")
@@ -54,8 +55,14 @@ export default function Footer() {
     }, [quote, author, year]); 
 
     return (
-        <>
-         <div className="footer">{author} - © {year} Toope Oladunjoye</div>
-        </>
+        <AnimatePresence>
+            <motion.div 
+                initial={{ opacity: 0, filter: "blur(5px)"}}
+                animate={{ opacity: 0.45, filter: "blur(0px)" }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }} className="footer">
+                    {author} - © {year} Toope Oladunjoye
+                </motion.div>
+        </AnimatePresence>
+
     )
 }

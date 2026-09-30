@@ -183,7 +183,6 @@ body {
   transform: translateX(-50%);
   bottom: 18px;
   font-size: 12px;
-  opacity: .45;
   z-index: 10;
   text-align: center;
 }

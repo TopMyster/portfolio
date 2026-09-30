@@ -141,9 +141,9 @@ export default function Section({ name, content, isLink = false, isImage = false
                                         <motion.div
                                             key={item.video}
                                             className="project-preview"
-                                            initial={{ x: 18, y: 0, scale: 0.8, opacity: 0 }}
-                                            animate={{ x: 0, y: 0, scale: 1, opacity: 1 }}
-                                            exit={{ x: 18, y: 0, scale: 0.8, opacity: 0 }}
+                                            initial={{ x: 18, y: 0, scale: 0.2, opacity: 0, filter: "blur(15px)" }}
+                                            animate={{ x: 0, y: 0, scale: 1, opacity: 1, filter: "none" }}
+                                            exit={{ x: 18, y: 0, scale: 0.8, opacity: 0, filter: "blur(15px)" }}
                                             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                                             style={{
                                                 position: "fixed",
