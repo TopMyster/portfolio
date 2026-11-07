@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react'
 import './App.css'
 import Content from './Content'
-import Footer from './Footer'
 export default function App() {
   return (
    <>
@@ -13,7 +12,6 @@ export default function App() {
         >
           <Content/>
         </motion.div>
-        <Footer/>
       </AnimatePresence>
    </>
   )

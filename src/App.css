@@ -92,6 +92,9 @@ body {
 
 .item {
   opacity: .65;
+  margin-bottom: 5px;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(0, 0, 0, 0.2);
   backface-visibility: hidden;
   transition: opacity .1s cubic-bezier(0.075, 0.82, 0.165, 1)
 }
